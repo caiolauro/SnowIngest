@@ -1,9 +1,9 @@
 # **Snowflake Data Ingestion Tech Talk**
 ---
 
-1. Mentimeter Quiz
+1. **Mentimeter Quiz**
 
-2. Snowflake Demo<br>
+2. **Snowflake Demo**<br>
 **Goal:**<br>
 Create a auto ingestion pipeline with Snowflake Data Cloud<br>
 **Technologies and Services adopted**<br>
