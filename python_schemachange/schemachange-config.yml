@@ -1,0 +1,39 @@
+config-version: 1
+
+# The root folder for the database change scripts
+root-folder: 'databases'
+
+# The name of the snowflake account (e.g. xy12345.east-us-2.azure)
+snowflake-account: 'wh75704.us-east-2.aws'
+
+# The name of the snowflake user
+snowflake-user: 'CAIOLAURO'
+
+# The name of the default role to use. Can be overrideen in the change scripts.
+snowflake-role: 'SYSADMIN'
+
+# The name of the default warehouse to use. Can be overridden in the change scripts.
+snowflake-warehouse: 'X_LARGE_WH'
+
+# The name of the default database to use. Can be overridden in the change scripts.
+snowflake-database: 'CLUSTERING'
+
+# Used to override the default name of the change history table (the default is METADATA.SCHEMACHANGE.CHANGE_HISTORY)
+change-history-table: CLUSTERING.SCHEMACHANGE.CHANGE_HISTORY
+
+# Define values for the variables to replaced in change scripts
+vars:
+  var1: 'value1'
+  var2: 'value2'
+
+# Create the change history schema and table, if they do not exist (the default is False)
+create-change-history-table: false
+
+# Enable autocommit feature for DML commands (the default is False)
+autocommit: false
+
+# Display verbose debugging details during execution (the default is False)
+verbose: false
+
+# Run schemachange in dry run mode (the default is False)
+dry-run: false
