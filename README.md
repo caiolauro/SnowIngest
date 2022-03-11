@@ -5,13 +5,13 @@
 
 2. **Snowflake Demo**<br>
 **Goal:**<br>
-Create a auto ingestion pipeline with Snowflake Data Cloud<br>
+Create a auto ingestion pipeline with Snowflake Data Cloud<br><br>
 **Technologies and Services adopted**<br>
 - **Python**
     - Schemachange
     - Flask App
-- **PythonAnywhere** <br>
-PythonAnywhere is an online integrated development environment and web hosting service based on the Python programming language.
+- **PythonAnywhere:** an online integrated development environment and web hosting service based on the Python programming language.<br>
+
 - **AWS S3 Buckets**
     - Bucket Notifications
 - **Snowflake Data Cloud**
