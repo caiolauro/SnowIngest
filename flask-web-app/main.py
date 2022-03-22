@@ -13,11 +13,12 @@ app = Flask(__name__)
 
 # create S3 client
 s3 = boto3.client('s3',
-    aws_access_key_id=<AWS_ACCESS_KEY_ID>,
-    aws_secret_access_key=<AWS_SECRET_ACCESS_KEY>
+    # you can also store your AWS Keys as env variables.
+    aws_access_key_id='<AWS_ACCESS_KEY_ID>',
+    aws_secret_access_key='<AWS_SECRET_ACCESS_KEY>'
     )
 
-# bucket name
+# Name of the S3 Bucket which receives WebAPP data
 bucket_name = 'snowflake-tech-talk-stage'
 
 class HomePage(MethodView):
@@ -34,7 +35,7 @@ class RestaurantFormPage(MethodView):
 class ResultsPage(MethodView):
     def post(self):
         current_ts = datetime.now().strftime("%Y_%m_%d_%H_%M_%S_")
-        data_ingestion_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S.00000")
+        data_ingestion_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S.00000") # time of forms fill up
         form = RestaurantForm(request.form)
         item_name = form.item_name.data
         category = form.category.data
