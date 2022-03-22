@@ -6,6 +6,7 @@ provider "registry.terraform.io/chanzuckerberg/snowflake" {
   constraints = "0.25.30"
   hashes = [
     "h1:0h/9I0hg488v3NRDjO+Hm4Lp48+Zwkwga52GOlT7HRA=",
+    "h1:ZybIeImzkZZx89/K1bfpEn0fnCBkEh8E/CDrM6yw0E0=",
     "zh:1e53b479e3cc18e75e4a3cb8fdf15b02f4e5b05e015a6eafbf9a833ae27abcff",
     "zh:259b318b934827b1397d590867e2910f9b9278d9bcdfcc9cdb6c519aaa9235c5",
     "zh:25b0fb38af8359807f4db6b33fb40c60fccd8f37f6c864cb9c9c385a6d0e4ca2",
@@ -31,6 +32,7 @@ provider "registry.terraform.io/hashicorp/aws" {
   constraints = "~> 3.35.0"
   hashes = [
     "h1:TIGgnMUk1iatPNQhjqoVaj3q20sXxt7/DMcRp797lFM=",
+    "h1:btK0kEAhczdkGY1qWGSEs5840TlyefTEekQJB9ctwJ8=",
     "zh:0b7cf15369fe940190f2e3fd77300119a16a9b821a7b15e049a6e349126b833d",
     "zh:65680b35a45df6dc9ebe4439aa28dbe5767f8745443d0807656759d81ed23f5d",
     "zh:75a71517d40b842308bc7a13a8dadcade99de3344292318b28a3ad95f09994e7",
