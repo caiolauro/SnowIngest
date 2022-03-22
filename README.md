@@ -1,7 +1,7 @@
 # **Snowflake Data Ingestion Demonstration**
 ---
 
-**Goal:**<br>
+## **Goal**<br>
 
 Create an **auto ingestion** pipeline using:
 
@@ -10,6 +10,7 @@ Create an **auto ingestion** pipeline using:
 - S3 Bucket as Staging Area
 - Snowflake Snowpipes for Automatic Ingestion (Bucket Notifications)
 - Snowflake as Data Warehouse
+    - Schemachange Python Tool to create Tables and Pipes.
 
 <br><br>
 
@@ -24,3 +25,5 @@ Create an **auto ingestion** pipeline using:
 - https://www.pythonanywhere.com/
 
 - https://github.com/hashicorp/terraform-guides/issues/92
+
+- https://github.com/Snowflake-Labs/schemachange
