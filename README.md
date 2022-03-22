@@ -1,25 +1,21 @@
-# **Snowflake Data Ingestion Tech Talk**
+# **Snowflake Data Ingestion Demonstration**
 ---
 
-1. **Mentimeter Quiz**
-
-2. **Snowflake Demo**<br>
 **Goal:**<br>
-Create a auto ingestion pipeline with Snowflake Data Cloud<br><br>
-**Technologies and Services adopted**<br>
-- **Python**
-    - Schemachange
-    - Flask App
-- **PythonAnywhere:** an online integrated development environment and web hosting service based on the Python programming language.<br>
 
-- **AWS S3 Buckets**
-    - Bucket Notifications
-- **Snowflake Data Cloud**
-    - Snowpipe: technology to do autoingestion inside Snowflake using AWS SQS or SNS
-- **Terraform**
-    - To set the required infrastructure and configuration in AWS
-    - To create Snowflake Objects like databases.
+Create an **auto ingestion** pipeline using:
 
+- Terraform to set AWS and Snowflake Infrastructure 
+- Flask Form WebApp as Data Source deployed using PythonAnywhere
+- S3 Bucket as Staging Area
+- Snowflake Snowpipes for Automatic Ingestion (Bucket Notifications)
+- Snowflake as Data Warehouse
+
+<br><br>
+
+**Pipeline Diagram**
+
+[<img src="images/SnowIngest Project.jpg">](Diagram)
 
 
 **References:**
