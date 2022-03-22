@@ -9,30 +9,3 @@ resource "aws_s3_bucket" "snowflake_tech_talk_infra" {
     }
   }
 }
-# }
-#   lifecycle_rule {
-#     id      = "all"
-#     enabled = true
-
-#     transition {
-#       days          = 30
-#       storage_class = "ONEZONE_IA"
-#     }
-
-# #     expiration {
-# #       days = 90
-# #     }
-# #   }
-
-# #   versioning {
-# #     enabled = true
-# #   }
-
-# #   tags = merge(
-# #     {
-# #       Environment = var.aws_environment_tag
-# #       Terraform   = true
-# #     },
-# #     var.extra_tags
-# #   )
-# }
