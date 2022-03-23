@@ -48,6 +48,7 @@ Here you should indicate the created role ARN from step 2.
 
 
 ### 7. **Use below command and get *notificationChannelName***
+    
     ```sql
     SELECT SYSTEM$PIPE_STATUS('<PIPE_NAME>');
     ```
