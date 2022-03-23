@@ -12,25 +12,59 @@ Create an **auto ingestion** pipeline using:
 - Snowflake as Data Warehouse
     - Schemachange Python Tool to create Tables and Pipes.
 
-<br><br>
+<br>
 
-**Pipeline Diagram**
+##  **The Data Pipeline**
 
 [<img src="images/SnowIngest Project.jpg">](Diagram)
 
 ## *Explaining how Auto Ingestion with Snowpipe Works*
 
-Snowpipe relies on a External Stage Storage (e.g: S3) and Queue Services (e.g: SQS) to perform auto ingestion.
-In order to do that it is necessary to set a *trust relationship* between Cloud Provider and Snowflake Accounts.
-Since the demo is using AWS, the explanation is focused on it. The following steps should be done to get the Snowpipe Auto Ingestion working:
-    1. IAM Policy with Access Rules to S3 Bucket.
-    2. Cross Account Trust Relationship IAM Role
-    3. Snowflake Storage Integration
-    Here you should indicate the created role ARN from step 2.
-    4. Get Storage Integration Snwoflake User ARN + External ID
-    5. Add External ID to  
+Snowpipe relies on External Stage Storage (e.g: S3) and Queue Services (e.g: SQS) to perform auto ingestion.
+To do that it is necessary to set a *trust relationship* between Cloud Provider and Snowflake Accounts.
+Since this Demo is using AWS, the explanation is focused on it. <br>
+The following steps should be followed to setup Snowpipe Auto Ingestion:
 
-**References:**
+
+### 1. **Create IAM Policy with Access Rules to S3 Bucket** 
+
+
+### 2. **Create Cross Account Trust Relationship IAM Role**
+
+
+### 3. **Create Snowflake Storage Integration**<br>
+Here you should indicate the created role ARN from step 2.
+
+
+### 4. **Get Storage Integration Snowflake User ARN + External ID**
+
+
+### 5. **Role Trusted entities:**<br>
+#### 5.1. Set variable for External ID (Condition)<br>
+#### 5.2. Set Users that should have the role access (Principal)
+
+
+### 6. **Create Snowpipe and Table to be ingested**
+
+
+### 7. **Use below command and get *notificationChannelName***
+    ```sql
+    SELECT SYSTEM$PIPE_STATUS('<PIPE_NAME>');
+    ```
+
+
+### 8. **Go to S3 Bucket and Create a Bucket Notification Event using Snowpipe SQS ARN**
+
+### 9. **Ready to Go! Start to Ingest your Files**
+
+---
+### ***Storage Integration Representation:***
+<br>
+[<img src="images/storage-integration-s3.png" width="500" height="250" style="vertical-align:middle">]
+
+---
+
+## **References:**
 
 - [Pythonanywhere Website](https://www.pythonanywhere.com/)
 
