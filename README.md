@@ -48,10 +48,9 @@ Here you should indicate the created role ARN from step 2.
 
 
 ### 7. **Use below command and get *notificationChannelName***
-    
-    ```sql
-    SELECT SYSTEM$PIPE_STATUS('<PIPE_NAME>');
-    ```
+```sql
+SELECT SYSTEM$PIPE_STATUS('<PIPE_NAME>');
+```
 
 
 ### 8. **Go to S3 Bucket and Create a Bucket Notification Event using Snowpipe SQS ARN**
