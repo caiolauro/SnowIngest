@@ -1,8 +1,8 @@
 resource "snowflake_stage" "tech_talk_stage" {
   name        = "TECH_TALK_TEST_STAGE_2"
   url         = "s3://web-app-tech-talk-stage-2"
-  database    = "SNOWFLAKE_TECH_TALK_TEST_2"
-  schema      = "TEST"
+  database    = var.SNOWFLAKE_TECH_TALK_DATABASE_NAME
+  schema      = var.SNOWFLAKE_TECH_TALK_SCHEMA_NAME
   storage_integration = "TECH_TALK_STORAGE_INTEGRATION_2"
 }
 

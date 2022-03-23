@@ -22,3 +22,13 @@ variable "SNOWFLAKE_PASSWORD" {
   description = "Snowflake User in Free Trial Account"
   type        = string
 }
+
+variable "SNOWFLAKE_TECH_TALK_DATABASE_NAME" {
+  type        = string
+  default     = "SNOWFLAKE_TECH_TALK_TEST_2"
+}
+
+variable "SNOWFLAKE_TECH_TALK_SCHEMA_NAME" {
+  type        = string
+  default     = "WEB_APP"
+}
