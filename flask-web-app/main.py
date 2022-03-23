@@ -19,7 +19,7 @@ s3 = boto3.client('s3',
     )
 
 # Name of the S3 Bucket which receives WebAPP data
-bucket_name = 'snowflake-tech-talk-stage'
+bucket_name = '<web-app-bucket>'
 
 class HomePage(MethodView):
 
