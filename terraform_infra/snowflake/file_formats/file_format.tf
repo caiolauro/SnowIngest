@@ -1,7 +1,7 @@
 resource "snowflake_file_format" "tech_talk_csv_gzip_file_format" {
   name                         = "GZIP_FILE_FORMAT"
-  database                     = "SHARED"
-  schema                       = "PUBLIC"
+  database                     = "SNOWFLAKE_TECH_TALK_TEST_2"
+  schema                       = "TEST"
   format_type                  = "CSV"
   escape                       = "NONE"
   escape_unenclosed_field      = "\\134"

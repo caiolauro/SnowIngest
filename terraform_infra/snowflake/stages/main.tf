@@ -4,6 +4,7 @@ provider "aws" {
 }
 
 provider "snowflake" {
+  role     = "ACCOUNTADMIN"
   username = var.SNOWFLAKE_TRIAL_USER
   account  = var.SNOWFLAKE_TRIAL_ACCOUNT
   region   = var.SNOWFLAKE_TRIAL_REGION
