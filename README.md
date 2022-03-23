@@ -1,5 +1,4 @@
 # **Snowflake Data Ingestion Demonstration**
----
 
 ## **Goal**<br>
 
