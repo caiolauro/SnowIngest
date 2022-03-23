@@ -10,7 +10,7 @@ variable "storage_integration_s3_paths" {
 
 variable "assumer_principals_arn_list" {
   type    = list(string)
-  default = ["arn:aws:iam::190687746545:user/clauro", "arn:aws:iam::039577674187:user/fikx-s-ohsv6205"]
+  default = ["arn:aws:iam::190687746545:user/clauro","arn:aws:iam::039577674187:user/fikx-s-ohsv6205"]
 }
 
 variable "storage_integration_s3_bucket_arn" {

@@ -32,3 +32,12 @@ terraform {
 
   }
 }
+
+data "terraform_remote_state" "storage_integration_role" {
+  backend = "s3"
+  config = {
+    bucket = "snowflake-tech-talk-infra"
+    key    = "aws/roles/snowflake_access_role/terraform.tfstate"
+    region = var.region
+  }
+}

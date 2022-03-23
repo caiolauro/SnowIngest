@@ -1,5 +1,5 @@
-create pipe shared.public.item_catalog_pipe 
-  auto_ingest=true as
-  copy into test.public.item_catalog
-  from @shared.public.tech_talk_stage
-  file_format = shared.public.gzip_file_format;
+CREATE PIPE SNOWFLAKE_TECH_TALK_TEST_2.TEST.ITEM_CATALOG_PIPE 
+  AUTO_INGEST=TRUE AS
+  COPY INTO SNOWFLAKE_TECH_TALK_TEST_2.TEST.WEB_APP
+  FROM @SNOWFLAKE_TECH_TALK_TEST_2.TEST.TECH_TALK_TEST_STAGE_2/data
+  FILE_FORMAT = SNOWFLAKE_TECH_TALK_TEST_2.TEST.GZIP_FILE_FORMAT;

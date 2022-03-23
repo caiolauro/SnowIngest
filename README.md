@@ -20,10 +20,9 @@ Create an **auto ingestion** pipeline using:
 
 
 **References:**
-- https://docs.google.com/presentation/d/19TXLfRKBLZTR9NPNEaJXX_YHQjDDC-ph5kKsGJ9scAA/edit#slide=id.gf3a29c705e_0_17
 
-- https://www.pythonanywhere.com/
+- [Pythonanywhere Website](https://www.pythonanywhere.com/)
 
-- https://github.com/hashicorp/terraform-guides/issues/92
+- [Snowflake Terraform Provider Documentation](https://registry.terraform.io/providers/chanzuckerberg/snowflake/latest/docs)
 
-- https://github.com/Snowflake-Labs/schemachange
+- [Schemachange Repo](https://github.com/Snowflake-Labs/schemachange)
