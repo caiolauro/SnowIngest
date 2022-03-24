@@ -12,14 +12,14 @@ from datetime import datetime
 app = Flask(__name__)
 
 # create S3 client
-s3 = boto3.client('s3',
+s3 = boto3.client('s3'
     # you can also store your AWS Keys as env variables.
-    aws_access_key_id='<AWS_ACCESS_KEY_ID>',
-    aws_secret_access_key='<AWS_SECRET_ACCESS_KEY>'
+    # aws_access_key_id='<AWS_ACCESS_KEY_ID>',
+    # aws_secret_access_key='<AWS_SECRET_ACCESS_KEY>'
     )
 
 # Name of the S3 Bucket which receives WebAPP data
-bucket_name = '<web-app-bucket>'
+bucket_name = 'web-app-tech-talk-stage-2'
 
 class HomePage(MethodView):
 
@@ -34,6 +34,7 @@ class RestaurantFormPage(MethodView):
 
 class ResultsPage(MethodView):
     def post(self):
+        customer_ip_address = request.environ['REMOTE_ADDR']
         current_ts = datetime.now().strftime("%Y_%m_%d_%H_%M_%S_")
         data_ingestion_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S.00000") # time of forms fill up
         form = RestaurantForm(request.form)
@@ -45,7 +46,7 @@ class ResultsPage(MethodView):
         with gzip.GzipFile(fileobj=mem_file, mode='wb', compresslevel=6) as gz:
             buff = io.StringIO()
             writer = csv.writer(buff)
-            writer.writerows([(item_name,category,price, data_ingestion_time)])
+            writer.writerows([(item_name,category,price, data_ingestion_time,customer_ip_address)])
             gz.write(buff.getvalue().encode('utf-8', 'replace'))
 
         mem_file.seek(0)
@@ -62,3 +63,4 @@ class RestaurantForm(Form):
 app.add_url_rule('/', view_func=HomePage.as_view('home_page'))
 app.add_url_rule('/forms', view_func=RestaurantFormPage.as_view('forms'))
 app.add_url_rule('/results', view_func=ResultsPage.as_view('results'))
+app.run(port=5000)
