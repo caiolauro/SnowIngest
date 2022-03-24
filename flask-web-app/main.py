@@ -1,12 +1,12 @@
 from flask.views import MethodView
 from wtforms import Form, StringField, SubmitField
 from flask import Flask, render_template,request
+from locations import LocationAPI
 import boto3
 import csv
 import io
 import gzip
 from datetime import datetime
-
 
 
 app = Flask(__name__)
@@ -24,7 +24,20 @@ bucket_name = 'web-app-tech-talk-stage-2'
 class HomePage(MethodView):
 
     def get(self):
+        current_ts = datetime.now().strftime("%Y_%m_%d_%H_%M_%S_")
+        mem_file = io.BytesIO()
+        customer_ip_address = '200.170.220.6' #request.environ['REMOTE_ADDR']
+        api_response = LocationAPI.get_info_from_ip(customer_ip_address)
+        with gzip.GzipFile(fileobj=mem_file, mode='wb', compresslevel=6) as gz:
+            buff = io.StringIO()
+            writer = csv.writer(buff)
+            writer.writerows([(api_response)])
+            gz.write(buff.getvalue().encode('utf-8', 'replace'))
+
+        mem_file.seek(0)
+        s3.put_object(Bucket=bucket_name, Key="data/customer_location_info/customer_location_info"+ current_ts +"form_response.gz", Body=mem_file)
         return render_template('index.html')
+
 
 class RestaurantFormPage(MethodView):
 
@@ -34,7 +47,7 @@ class RestaurantFormPage(MethodView):
 
 class ResultsPage(MethodView):
     def post(self):
-        customer_ip_address = request.environ['REMOTE_ADDR']
+        
         current_ts = datetime.now().strftime("%Y_%m_%d_%H_%M_%S_")
         data_ingestion_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S.00000") # time of forms fill up
         form = RestaurantForm(request.form)
@@ -46,11 +59,11 @@ class ResultsPage(MethodView):
         with gzip.GzipFile(fileobj=mem_file, mode='wb', compresslevel=6) as gz:
             buff = io.StringIO()
             writer = csv.writer(buff)
-            writer.writerows([(item_name,category,price, data_ingestion_time,customer_ip_address)])
+            writer.writerows([(item_name,category,price, data_ingestion_time)])
             gz.write(buff.getvalue().encode('utf-8', 'replace'))
 
         mem_file.seek(0)
-        s3.put_object(Bucket=bucket_name, Key="data/"+ current_ts +"form_response.gz", Body=mem_file)
+        s3.put_object(Bucket=bucket_name, Key="data/web_app"+ current_ts +"form_response.gz", Body=mem_file)
         return  render_template('results.html')
 
 class RestaurantForm(Form):
