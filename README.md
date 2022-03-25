@@ -13,10 +13,13 @@ Create an **auto ingestion** pipeline using:
 
 <br>
 
+---
+
 ##  **The Data Pipeline**
 
-[<img src="images/SnowIngest Project.jpg">](Diagram)
+<img src="images/snowIngestPipeline.png" width="900" height="350" style="vertical-align:middle">
 
+---
 ## *Explaining how Auto Ingestion with Snowpipe Works*
 
 Snowpipe relies on External Stage Storage (e.g: S3) and Queue Services (e.g: SQS) to perform auto ingestion.
@@ -72,3 +75,7 @@ SELECT SYSTEM$PIPE_STATUS('<PIPE_NAME>');
 - [Schemachange Repo](https://github.com/Snowflake-Labs/schemachange)
 
 - [Automating Snowpipe for Amazon S3](https://docs.snowflake.com/en/user-guide/data-load-snowpipe-auto-s3.html#step-1-configure-access-permissions-for-the-s3-bucket)
+
+- [Getting User Location in  Flask](https://stackabuse.com/how-to-get-users-ip-address-using-flask/)
+
+- [Ip Stack API](https://ipstack.com/)

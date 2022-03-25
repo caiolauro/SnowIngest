@@ -7,6 +7,7 @@ import csv
 import io
 import gzip
 from datetime import datetime
+import json
 
 
 app = Flask(__name__)
@@ -25,17 +26,9 @@ class HomePage(MethodView):
 
     def get(self):
         current_ts = datetime.now().strftime("%Y_%m_%d_%H_%M_%S_")
-        mem_file = io.BytesIO()
         customer_ip_address = '200.170.220.6' #request.environ['REMOTE_ADDR']
         api_response = LocationAPI.get_info_from_ip(customer_ip_address)
-        with gzip.GzipFile(fileobj=mem_file, mode='wb', compresslevel=6) as gz:
-            buff = io.StringIO()
-            writer = csv.writer(buff)
-            writer.writerows([(api_response)])
-            gz.write(buff.getvalue().encode('utf-8', 'replace'))
-
-        mem_file.seek(0)
-        s3.put_object(Bucket=bucket_name, Key="data/customer_location_info/customer_location_info"+ current_ts +"form_response.gz", Body=mem_file)
+        s3.put_object(Bucket=bucket_name, Key="data/customer_location_info/customer_location_info"+ current_ts +"form_response.json", Body=bytes(json.dumps(api_response).encode('UTF-8')))
         return render_template('index.html')
 
 
@@ -63,7 +56,7 @@ class ResultsPage(MethodView):
             gz.write(buff.getvalue().encode('utf-8', 'replace'))
 
         mem_file.seek(0)
-        s3.put_object(Bucket=bucket_name, Key="data/web_app"+ current_ts +"form_response.gz", Body=mem_file)
+        s3.put_object(Bucket=bucket_name, Key="data/web_app/web_app"+ current_ts +"form_response.gz", Body=mem_file)
         return  render_template('results.html')
 
 class RestaurantForm(Form):
