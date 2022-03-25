@@ -5,7 +5,7 @@
 Create an **auto ingestion** pipeline using:
 
 - Terraform to set AWS and Snowflake Infrastructure 
-- Flask Form WebApp as Data Source deployed using PythonAnywhere
+- Flask WebApp deployed using PythonAnywhere
 - S3 Bucket as Staging Area
 - Snowflake Snowpipes for Automatic Ingestion (Bucket Notifications)
 - Snowflake as Data Warehouse
