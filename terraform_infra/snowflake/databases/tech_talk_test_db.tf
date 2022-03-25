@@ -1,10 +1,10 @@
 resource "snowflake_database" "test_database" {
-  name                        = var.SNOWFLAKE_TECH_TALK_DATABASE_NAME
-  comment                     = "Database created to test auto ingestion for tech talk presentation"
+  name                        = var.WEB_APP_DATABASE_NAME
+  comment                     = "Auto Ingestion Database"
 
 }
 
 resource "snowflake_schema" "test_schema" {
-  database = var.SNOWFLAKE_TECH_TALK_DATABASE_NAME
-  name     = var.SNOWFLAKE_TECH_TALK_SCHEMA_NAME
+  database = var.WEB_APP_DATABASE_NAME
+  name     = var.WEB_APP_DB_SCHEMA_NAME
 }

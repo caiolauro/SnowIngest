@@ -1,0 +1,93 @@
+Tech Talk Presentation 24th March 2022
+
+
+>> Caio Lauro - Brazil - São Paulo - Data Platform Team at Galileo
+
+Step by Step for presentation:
+
+-----------------------------------------------------------------------------
+*Ingestion ShowCase*
+
+-> Access Flask Website
+	- Check customer_location_info/
+
+-> Fill Website Form
+	- Check web_app/
+
+-> Go to SnowFlake
+
+	- Check Copy History for tables
+
+-----------------------------------------------------------------------------
+
+*Terraforming - AWS I*
+
+#1 Create 2 Buckets snowflake-tf-infra + web-app-stage
+
+*Terraforming - Snowflake I*
+
+!!!Change Backend S3 bucket!!!
+
+#2 Create Snowflake Database + Schema
+
+#3 Create File Formats (CSV + JSON)
+
+*Snowflake Console*
+#4 Create Tables to be Ingested + View
+
+
+
+*Terraforming - AWS II*
+
+Explanation:
+We need to build the bridge between AWS S3 Bucket and Snowflake. This is called Storage Integration.
+For that, we need to create a IAM Role with read and write permissions into the bucket we wanna read from Snowflake.
+
+1) Create Policy with Access Policies in S3
+
+
+2) Create Role 
+	- *without condition statement and assumer_principals_arn_list without snowflake user*
+	- attaching policy document of step 1
+
+3) Create Snwoflake Storage Integration indicating ARN Role
+
+	- Using ACCOUNT ADMIN, check  SNF SI External ID and User ARN 
+	- Grant USAGE on Storage integration to SYSADMIN or create Stage with ACCOUNTADMIN
+
+4) Go back to 'cross_account_assume_role_policy' and add this information
+
+5) Create Stage using ACCOUNTADMIN Role or SYSADMIN (must have USAGE on SI)
+
+
+
+*Snowflake Console II*
+
+- Create Snowpipes pointing to source folders in S3
+
+- Get SQS ARNs for each pipe
+
+- Create Event Notifications in S3
+
+*PythonAnywhere*
+
+- Go to PythonAnywhere
+
+- Change S3 Bucket Name
+
+- Deploy WebSite
+
+- Send Website Link and tell everyone to fill the form
+
+
+*See Data flowing in Snowflake*
+
+- Go to Snowflake and Check Copy History for Both tables
+
+- Query WEB_APP table
+
+- Query View
+
+
+
+

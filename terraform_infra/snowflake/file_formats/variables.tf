@@ -23,12 +23,12 @@ variable "SNOWFLAKE_PASSWORD" {
   type        = string
 }
 
-variable "SNOWFLAKE_TECH_TALK_DATABASE_NAME" {
+variable "WEB_APP_DATABASE_NAME" {
   type        = string
-  default     = "SNOWFLAKE_TECH_TALK_TEST_2"
+  default     = "TECH_TALK_WEB_APP"
 }
 
-variable "SNOWFLAKE_TECH_TALK_SCHEMA_NAME" {
+variable "WEB_APP_DB_SCHEMA_NAME" {
   type        = string
-  default     = "TEST"
+  default     = "APP_DATA"
 }

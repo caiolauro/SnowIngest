@@ -1,7 +1,7 @@
 resource "snowflake_file_format" "tech_talk_csv_gzip_file_format" {
   name                         = "GZIP_FILE_FORMAT"
-  database                     = var.SNOWFLAKE_TECH_TALK_DATABASE_NAME
-  schema                       = var.SNOWFLAKE_TECH_TALK_SCHEMA_NAME
+  database                     = var.WEB_APP_DATABASE_NAME
+  schema                       = var.WEB_APP_DB_SCHEMA_NAME
   format_type                  = "CSV"
   escape                       = "NONE"
   escape_unenclosed_field      = "\\134"
@@ -24,7 +24,7 @@ resource "snowflake_file_format" "tech_talk_csv_gzip_file_format" {
 
 resource "snowflake_file_format" "tech_talk_json_file_format" {
   name                         = "JSON_FILE_FORMAT"
-  database                     = var.SNOWFLAKE_TECH_TALK_DATABASE_NAME
-  schema                       = var.SNOWFLAKE_TECH_TALK_SCHEMA_NAME
+  database                     = var.WEB_APP_DATABASE_NAME
+  schema                       = var.WEB_APP_DB_SCHEMA_NAME
   format_type                  = "JSON"
 }
