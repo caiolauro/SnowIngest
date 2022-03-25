@@ -21,3 +21,10 @@ resource "snowflake_file_format" "tech_talk_csv_gzip_file_format" {
   encoding                       = "UTF-8"
   trim_space                     = false
 }
+
+resource "snowflake_file_format" "tech_talk_json_file_format" {
+  name                         = "JSON_FILE_FORMAT"
+  database                     = var.SNOWFLAKE_TECH_TALK_DATABASE_NAME
+  schema                       = var.SNOWFLAKE_TECH_TALK_SCHEMA_NAME
+  format_type                  = "JSON"
+}

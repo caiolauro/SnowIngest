@@ -13,7 +13,7 @@ snowflake-user: 'CAIOLAURO'
 snowflake-role: 'SYSADMIN'
 
 # The name of the default warehouse to use. Can be overridden in the change scripts.
-snowflake-warehouse: 'X_LARGE_WH'
+snowflake-warehouse: 'COMPUTE_WH'
 
 # The name of the default database to use. Can be overridden in the change scripts.
 snowflake-database: 'CLUSTERING'

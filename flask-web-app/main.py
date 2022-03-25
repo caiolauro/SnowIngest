@@ -20,13 +20,13 @@ s3 = boto3.client('s3'
     )
 
 # Name of the S3 Bucket which receives WebAPP data
-bucket_name = '<bucket-name>'#'web-app-tech-talk-stage-2'
+bucket_name = '<bukcet_name>'#'web-app-tech-talk-stage-2'
 
 class HomePage(MethodView):
 
     def get(self):
         current_ts = datetime.now().strftime("%Y_%m_%d_%H_%M_%S_")
-        customer_ip_address = request.environ['REMOTE_ADDR']
+        customer_ip_address = request.environ.get('HTTP_X_FORWARDED_FOR', request.remote_addr)
         api_response = LocationAPI.get_info_from_ip(customer_ip_address)
         s3.put_object(Bucket=bucket_name, Key="data/customer_location_info/customer_location_info"+ current_ts +"form_response.json", Body=bytes(json.dumps(api_response).encode('UTF-8')))
         return render_template('index.html')

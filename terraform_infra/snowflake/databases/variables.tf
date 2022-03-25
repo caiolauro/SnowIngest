@@ -30,5 +30,5 @@ variable "SNOWFLAKE_TECH_TALK_DATABASE_NAME" {
 
 variable "SNOWFLAKE_TECH_TALK_SCHEMA_NAME" {
   type        = string
-  default     = "WEB_APP"
+  default     = "TEST"
 }
