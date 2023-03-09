@@ -33,7 +33,7 @@ The following steps should be followed to setup Snowpipe Auto Ingestion:
 
 
 ### 2. **Create Cross Account Trust Relationship IAM Role**
-Need to udpdate the variable assumer_principals_arn_list
+Make sure you have the variable assumer_principals_arn_list updated.
 
 ### 3. **Create Snowflake Storage Integration**<br>
 Here you should indicate the created role ARN from step 2.
